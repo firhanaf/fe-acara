@@ -1,4 +1,4 @@
-import { Card, CardBody, Input } from "@nextui-org/react";
+import { Button, Card, CardBody, Input } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
 import useRegister from "./useRegister";
@@ -26,7 +26,7 @@ const Register = () => {
                     <h2 className="text-xl font-bold text-danger-500">Create Account</h2>
                     <p className="mb-4 text-small">Have an account?&nbsp; 
 
-                        <Link href="/login" className="font-semibold text-danger-400">Login here</Link>
+                        <Link href="/auth/login" className="font-semibold text-danger-400">Login here</Link>
                     </p>
                     <form className="flex w-80 flex-col gap-4">
                         <Input 
@@ -76,6 +76,7 @@ const Register = () => {
                                 )}
                             </button>
                         } />
+                        <Button color="danger" size="lg" type="submit">Register</Button>
                     </form>
                 </CardBody>
             </Card>
