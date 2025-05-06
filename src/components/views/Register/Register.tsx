@@ -4,6 +4,7 @@ import Link from "next/link";
 import useRegister from "./useRegister";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { Controller } from "react-hook-form";
+import { cn } from "@/utils/cn";
 
 const Register = () => {
   const {
@@ -44,7 +45,10 @@ const Register = () => {
               Login here
             </Link>
           </p>
-          <form className="flex w-80 flex-col gap-4" onSubmit={handleSubmit(handleRegister)}>
+          {errors.root && (
+            <p className="mb-2 font-medium text-danger">{errors?.root?.message}</p>
+          )}
+          <form className={cn("flex w-80 flex-col", Object.keys(errors).length > 0 ? "gap-2" : "gap-4")} onSubmit={handleSubmit(handleRegister)}>
             <Controller
               name="fullname"
               control={control}
